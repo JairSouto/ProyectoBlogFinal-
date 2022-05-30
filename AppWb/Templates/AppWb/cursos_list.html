@@ -1,0 +1,24 @@
+{% extends  'AppWb/padre.html' %}  
+{% block contenidoQ2cambia %}
+    <title>Cursos_List</title>
+</head>
+<body>
+    <H2><p style='color:darkkhaki'> Cursos Activos </p></H2>
+    <a href="{% url 'New'%}">Crear</a>
+    <ul>
+        {% for cursos in object_list %}
+            <li>
+                <p style="color:cornsilk">{{cursos.nombre}} </p>
+                <p>
+                    <a href="{% url 'Detail' cursos.id %}">Ver</a>
+                    <a href="{% url 'Edit' cursos.id %}">Editar</a>
+                    <a href="{% url 'Delete' cursos.id %}">Borrar</a>
+                    
+
+                </p>
+        
+            </li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+    

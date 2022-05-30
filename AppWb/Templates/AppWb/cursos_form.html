@@ -1,0 +1,11 @@
+{% extends  'AppWb/padre.html' %}  
+{% block contenidoQcambia %}
+    <title>Formulario - Cursos</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="enviar"/>
+    </form>
+    {% endblock %}

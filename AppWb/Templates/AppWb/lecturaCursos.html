@@ -1,0 +1,21 @@
+{% extends  'AppWb/padre.html' %}    
+{% block contenidoQcambia %}
+
+<body>
+        {% for c in cursos %}
+            <li>{{c}}</li> 
+        <button>
+            <a href="{% url 'EliminarCursos' c.nombre %}">Eliminar</a>
+            <a href="{% url 'EditarCursos' c.nombre %}">Editar</a>
+        </button>
+            
+
+        {% endfor %}
+        <a href="{% url 'Cursos' %}">Agregar Cursos</a>  
+
+      
+    
+      
+</body>
+{% endblock %}
+    

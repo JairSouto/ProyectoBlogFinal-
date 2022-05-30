@@ -1,0 +1,25 @@
+{% extends  'AppWb/padre.html' %}
+    {% load static %}
+    {% block contenidoQcambia %}
+
+    <h1>Formulario - Cursos </h1>
+    {% if miFormulario.errors %}
+
+    <p style="color:blueviolet"> Estaban mal los datos revisar!</p>
+
+    {% endif %}
+    <form action="" method="POST"> {% csrf_token %}
+        <table>
+
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="submit" , value="Enviar">
+
+
+
+
+    </form>
+
+    {% endblock %}
+

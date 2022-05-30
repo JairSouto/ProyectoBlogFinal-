@@ -1,0 +1,12 @@
+{% extends  'AppWb/padre.html' %}  
+{% block contenidoQcambia %}
+    <title>Detalles de Cursos</title>
+</head>
+<body>
+    <p style="color:coral">Nombre del curso: <i>{{cursos.nombre}}</i></p>
+    <p style="color:coral">Pro Player: <i>{{cursos.jugadorpro}}</i></p>
+    <p style="color:coral">Duracion del curso: <i>{{cursos.duracion}}</i></p>
+    <p>
+        <a href="{% url 'List' %}">Regresar</a>
+    </p>
+    {% endblock %}
