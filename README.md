@@ -7,7 +7,8 @@ mediante la listview podemos ver que cursos nos encontramos en la pagina disponi
 podemos ver los equipos, entrenadores y el tiempo que requiere cada curso
 
 
-funciones para ver que equipos tiene la pagina podemos poner /leerEquipos y nos saldra que equipos estan con world e sport
+funciones para ver que equipos tiene la pagina: podemos poner /leerEquipos y nos saldra que equipos estan con world e sport.
+
 para saber que cursos estan disponibles solo basta con darle click en lista de cursos.
 
 
