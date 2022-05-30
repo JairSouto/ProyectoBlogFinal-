@@ -1,4 +1,7 @@
 # ProyectoBlogFinal-
+Link VideoDfuncionalidad paginaWeb
+https://www.youtube.com/watch?v=ycsp9fFb0vc
+# ProyectoBlogFinal-
 
 #mi nombre es jair souto#
 La pagina web tiene la funcionalidad para encontrar cursos de juegos.
