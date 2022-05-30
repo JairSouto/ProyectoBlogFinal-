@@ -10,9 +10,13 @@ urlpatterns = [
     path('asociados',views.asociados, name='Asociados'),
     path('equipos', views.equipos, name='Equipos'),
     path('cursos',views.cursos, name='Cursos'),
+
     path('busquedaSeguidores', views.busquedaSeguidores, name='BusquedaSeguidores'),
     path('buscar/',views.buscar),
+
     path('leerCursos/', views.lecturaCursos, name='LecturaCursos'),
+    path('leerEquipos/', views.lecturaEquipos, name='LecturaEquipos'),
+    
     path('eliminarCursos/<cursos_nombre>/',views.eliminarCurso,name='EliminarCursos'),
     path('editarCursos/<cursos_nombre>/',views.editarCurso, name='EditarCursos'),
     path('editarUsuario',views.editarUsuario,name='EditarUsuario'),
@@ -22,10 +26,7 @@ urlpatterns = [
     path('login', views.login_request, name='Login'),
     path('register',views.register,name='Register'),
     path('logout', LogoutView.as_view(template_name='AppWb/logout.html'),name='Logout'),
-    
-
-
-
+    path('about', views.About, name='about'),
 
 
     path(r'^(?P<pk>\d+)$', views.CursosDetalle.as_view(), name='Detail'),

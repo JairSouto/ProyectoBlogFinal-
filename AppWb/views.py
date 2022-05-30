@@ -1,11 +1,13 @@
 
 
+
 from django.http import HttpResponse
 from django.shortcuts import render
 from AppWb import forms
+from django.contrib.auth.models import User
 
 from AppWb.forms import EquiposFormularios, AsociadosFormularios, CursosFormularios, UserRegisterForm
-from AppWb.models import Asociados, Cursos, Equipos
+from AppWb.models import Asociados, Avatar, Cursos, Equipos
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
@@ -14,6 +16,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate,logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+
+
 
 @login_required
 def editarUsuario(request):
@@ -66,7 +72,7 @@ def login_request(request):
 
             if user:
                 login(request, user)
-                return render(request, 'AppWb/inicio.html', {'mensaje':f"Bienvenido a Wolrd e-sports {user}"})
+                return render(request, 'AppWb/inicio.html', {'mensaje':f"Bienvenido {user}"})
         else:
 
             return render(request, 'AppWb/inicio.html',{'mensaje':"Error. Datos incorrectos"})
@@ -76,8 +82,12 @@ def login_request(request):
         
 
 # Create your views here.
+
 def inicio(request):
     return render(request,'AppWb/inicio.html')
+def About(request):
+    return render(request,'AppWb/about.html')
+@login_required
 def asociados(request):
     if request.method=='POST':
         miFormulario= AsociadosFormularios(request.POST)
@@ -97,8 +107,7 @@ def asociados(request):
 
 
 
-
-
+@login_required
 def cursos(request):
    
     if request.method=='POST':
@@ -137,7 +146,7 @@ def equipos(request):
 def busquedaSeguidores(request):
     return render(request, 'AppWb/busquedaSeguidores.html')
 
-
+@login_required
 def buscar(request):
     if request.GET['seguidores']:
         seguidores=request.GET['seguidores']
@@ -147,11 +156,17 @@ def buscar(request):
     else:
         respuesta ="No enviaste Datos"
         return HttpResponse(respuesta)
-
+@login_required
 def lecturaCursos(request):
     cursos=Cursos.objects.all()
     contexto1= {'cursos':cursos}
     return render(request, 'AppWb/lecturaCursos.html', contexto1)
+
+def lecturaEquipos(request):
+    equipos=Equipos.objects.all()
+    contexto3= {'equipos':equipos}
+    return render(request, 'AppWb/lecturaEquipos.html', contexto3)
+
 @login_required
 def eliminarCurso(request, cursos_nombre):
 
@@ -197,7 +212,7 @@ class CursosCreacion(LoginRequiredMixin  , CreateView):
     fields = ['nombre', 'jugadorpro','duracion']
 class CursosUpdate( LoginRequiredMixin  ,UpdateView):
     model = Cursos
-    success_url = '/AppWb/cursos/list'
+    success_url = '/AppWb/curso/list'
     fields = ['nombre', 'jugadorpro','duracion']
 class CursosDelete(LoginRequiredMixin ,DeleteView):
     model = Cursos

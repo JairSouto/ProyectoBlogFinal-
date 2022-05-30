@@ -8,11 +8,15 @@ class Equipos(models.Model):
   
 
     seguidores = models.IntegerField()
+    def __str__(self):
+        return f'Nombre: {self.nombre} - seguidores {self.seguidores}'
 
     
 class Asociados(models.Model):
     nombre = models.CharField(max_length=40)
-    redes_sociales = models.CharField(max_length=30)
+    redes_sociales = models.CharField(max_length=30)    
+    def __str__(self):
+        return f'Nombre: {self.nombre} - redes sociales {self.redes_sociales}'
 
 class Cursos(models.Model):
     nombre = models.CharField(max_length=70)

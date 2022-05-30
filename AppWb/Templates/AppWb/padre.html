@@ -62,12 +62,15 @@
                             {%endif%}
                             {% with first_image=user.avatar_set.first %}
                                 {% if first_image %}
-                                    <a href="{{first_image.imagen.url}}" target="blank">
-                                    <img src="{{firs_image.imagen.url}}" class=""  style="min-width: 300px ">
+                                    <a href="{{first_image.imagen.url}}" target=" blank"></a>
+                                    <img src="{{first_image.imagen.url}}" class=""  style="max-width: 10ch;">
                                 {% endif %}
                             {% endwith %}
 
-
+                            {% if  request.user.is_authenticated %}
+                                <a class="navbar-brand" href="{% url 'EditarUsuario' %}">EditUser</a>
+                            {% endif %}
+                
                             {% block contenidoQ2cambia %}
 
                             {% endblock %}
@@ -75,10 +78,7 @@
                 </div>
             </div>
         </header>
-        {% if  request.user.is_authenticated %}
-            <a class="navbar-brand" href="{% url 'EditarUsuario' %}">EditUser</a>
-         {% endif %}
-
+        
         <!-- About-->
         {% block contenidoQcambia %}
 
