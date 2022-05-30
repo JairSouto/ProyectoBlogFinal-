@@ -18,7 +18,7 @@ para entrar a la parte ADMIN:
 usuario: JairCoder
 password:Coderhouse2 o Coderhouse
 
-en el video me olvide de añadir el about me, actualmente ya se encuentra el proyect, perdonen.
+en el video me olvide de añadir el about me, actualmente ya se encuentra en el proyect, perdonen.
 
 
 
